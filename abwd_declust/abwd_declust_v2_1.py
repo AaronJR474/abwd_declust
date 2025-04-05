@@ -175,7 +175,7 @@ def abwd_crjb(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method, fs_tim
         if vcl[i] == 0:
             # Find Events inside both fore- and aftershock time windows
             dt = year_dec - year_dec[i]
-            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i], ), )
+            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i]))
             aftershock_centroids = list(compress(rupture_area_centroid_sort, vsel))
             crjb_dist = crjb(rupture_area_poly_sort[i],rup1km_multipoint_sort[i], aftershock_centroids)
             vsel1 = crjb_dist <= sw_space[i]
@@ -406,7 +406,7 @@ def abwd_rclosestp2h(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
         if vcl[i] == 0:
             # Find Events inside both fore- and aftershock time windows
             dt = year_dec - year_dec[i]
-            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i], ), )
+            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i]))
             epicentre_vsel = (epicentre_sort[vsel])
             rclosest_p2h_dist = rclosest_p2h(rupture_area_poly_sort[i],grid_centroid_multi_sort[i], epicentre_vsel)
             vsel1 = rclosest_p2h_dist <= sw_space[i]
@@ -600,7 +600,7 @@ def abwd_rclosestp2p(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
         if vcl[i] == 0:
             # Find Events inside both fore- and aftershock time windows
             dt = year_dec - year_dec[i]
-            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i], ), )
+            vsel = np.logical_and(vcl == 0, np.logical_and(dt >= (-sw_time[i] * fs_time_prop), dt <= sw_time[i]))
             rup1km_multipoint_ref = list(compress(rup1km_multipoint_sort, vsel))
             rclosest_p2p_dist = rclosest_p2p(rupture_area_poly_sort[i], rup1km_multipoint_sort[i], rup1km_multipoint_ref)
             vsel1 = rclosest_p2p_dist <= sw_space[i]
