@@ -135,8 +135,8 @@ def abwd_crjb(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method, fs_tim
 
     DAYS = 364.75
     if window_method == 'GardnerKnopoff':
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space>=0] = rjb_cutoff
     elif window_method == 'Gruenthal':
@@ -149,8 +149,8 @@ def abwd_crjb(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method, fs_tim
         sw_space = np.exp(-1.024 + 0.804 * catalogue_pd.mag)
         sw_space[sw_space>=0] = rjb_cutoff
     else:
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space>=0] = rjb_cutoff
 
@@ -367,8 +367,8 @@ def abwd_rclosestp2h(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
 
     DAYS = 364.75
     if window_method == 'GardnerKnopoff':
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space>=0] = rjb_cutoff
     elif window_method == 'Gruenthal':
@@ -381,8 +381,8 @@ def abwd_rclosestp2h(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
         sw_space = np.exp(-1.024 + 0.804 * catalogue_pd.mag)
         sw_space[sw_space>=0] = rjb_cutoff
     else:
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space>=0] = rjb_cutoff
 
@@ -560,9 +560,8 @@ def abwd_rclosestp2p(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
 
     DAYS = 364.75
     if window_method == 'GardnerKnopoff':
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (
-                    np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space >= 0] = rjb_cutoff
     elif window_method == 'Gruenthal':
@@ -576,9 +575,8 @@ def abwd_rclosestp2p(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
         sw_space = np.exp(-1.024 + 0.804 * catalogue_pd.mag)
         sw_space[sw_space >= 0] = rjb_cutoff
     else:
-        sw_time = np.abs((np.exp(-3.95 + np.sqrt(0.62 + 17.32 * catalogue_pd.mag))) / DAYS)
-        sw_time[catalogue_pd.mag >= 6.5] = (
-                    np.power(10, 2.8 + 0.024 * catalogue_pd.mag[catalogue_pd.mag >= 6.5]) / DAYS)
+        sw_time = np.power(10.0, 0.032 * catalogue_pd.mag + 2.7389) / DAYS
+        sw_time[catalogue_pd.mag < 6.5] = np.power(10.0, 0.5409 * catalogue_pd.mag[catalogue_pd.mag < 6.5] - 0.547) / DAYS
         sw_space = np.power(10.0, 0.1238 * catalogue_pd.mag + 0.983)
         sw_space[sw_space >= 0] = rjb_cutoff
 
