@@ -1,6 +1,6 @@
 # abwd_declust: Mainshock and Aftershock Classification via the Woodell & Abrahamson 2014 and 2018 Distance-Window
 
-This repository contains the code to perform the declustering analysis of earthquake catalogues via the distance-window proposed by Abrahamson & Woodell 2014 & 2018 in:
+This repository contains the code to perform the declustering analysis of earthquake catalogues via the distance-window proposed by Woodell & Abrahamson 2014 & 2018 in:
 
 > Wooddell KE, Abrahamson NA. Classification of Main Shocks and Aftershocks in the NGA-West2 Database. Earthquake Spectra. 2014;30(3):1257-1267. doi:10.1193/071913EQS208M
 
