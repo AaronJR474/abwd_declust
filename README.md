@@ -1,4 +1,4 @@
-# abwd_declust: Mainshock and Aftershock Classification via the Abrahamson & Woodell 2014 and 2018 Distance-Window
+# abwd_declust: Mainshock and Aftershock Classification via the Woodell & Abrahamson 2014 and 2018 Distance-Window
 
 This repository contains the code to perform the declustering analysis of earthquake catalogues via the distance-window proposed by Abrahamson & Woodell 2014 & 2018 in:
 
