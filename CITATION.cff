@@ -1,0 +1,45 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: abwd_declust
+message: >-
+  Mainshock and Aftershock Classification via the Woodell &
+  Abrahamson 2014 and 2018 Distance-Window
+type: software
+authors:
+  - given-names: Aaron Jerome
+    family-names: Rampersad
+    email: aaron.rampersad@pg.canterbury.ac.nz
+    affiliation: 'University of Canterbury, Christchurch, New Zealand'
+    orcid: 'https://orcid.org/0009-0009-6134-3828'
+  - given-names: Joel Nathan
+    family-names: Ridden
+    email: joel.ridden@canterbury.ac.nz
+    affiliation: 'University of Canterbury, Christchurch, New Zealand'
+repository-code: 'https://github.com/AaronJR474/abwd_declust'
+abstract: >-
+  This repository implements the Woodell & Abrahamson (2014)
+  and Woodell (2018) aftershock classification algorithm,
+  now adopted in the NGA-West3 project. The method builds on
+  the traditional time–distance window approach of Gardner &
+  Knopoff, but introduces three alternative distance-window
+  metrics that reference the actual rupture plane geometry
+  rather than a fixed circular distance from the epicenter.
+  By retaining the original time-window formulation while
+  redefining the spatial window, the algorithm provides a
+  more accurate and reproducible classification of mainshock
+  versus aftershock events. This refinement was first
+  applied to the NGA-West2 Ground-Motion Database and has
+  since become the standard in NGA projects. The code here
+  enables researchers to apply the method to their own
+  earthquake catalogs, ensuring consistency with the
+  NGA-West3 framework and supporting transparent,
+  reproducible seismic hazard analyses.
+keywords:
+  - engineering seismology
+  - aftershock
+  - mainshock
+  - declustering
+  - ground-motion database
+license: GPL-3.0
