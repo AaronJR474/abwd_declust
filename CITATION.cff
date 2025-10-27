@@ -17,6 +17,9 @@ authors:
     family-names: Ridden
     email: joel.ridden@canterbury.ac.nz
     affiliation: 'University of Canterbury, Christchurch, New Zealand'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16899715
 repository-code: 'https://github.com/AaronJR474/abwd_declust'
 abstract: >-
   This repository implements the Woodell & Abrahamson (2014)
