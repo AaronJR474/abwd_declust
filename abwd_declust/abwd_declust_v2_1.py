@@ -110,21 +110,21 @@ def abwd_crjb(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method, fs_tim
             rupture_poly_multipoint.append(xy_resampled_temp)
         return rupture_poly_multipoint
 
-    def crjb(rupture_area_poly,rup1km_multipoint, rupture_area_centroid):
-        crjb_final = []
-        for i in range(len(rupture_area_centroid)):
-            rup1km_centroid = rupture_area_centroid[i]
-            crjb_distance_initial = []
-            for j in range(len(rup1km_multipoint.geoms) - 1):
-                crjb0_filter = rupture_area_poly.contains(geometry.Point(rup1km_centroid))
-                if crjb0_filter:
-                    distance_temp = [[0.0]]
-                else:
-                    distance_temp = haversine_oq(rup1km_centroid[0], rup1km_centroid[1], rup1km_multipoint.geoms[j].x,
-                                             rup1km_multipoint.geoms[j].y)
-                crjb_distance_initial.append(distance_temp[0][0])
-            crjb_final.append(min(crjb_distance_initial))
-        return np.array(crjb_final)
+    def crjb(main_poly, main_rup1km_multipoint, candidate_centroids):
+        # boundary points of the mainshock rupture polygon
+        bx = np.array([p.x for p in main_rup1km_multipoint.geoms], dtype=float)
+        by = np.array([p.y for p in main_rup1km_multipoint.geoms], dtype=float)
+
+        out = np.empty(len(candidate_centroids), dtype=float)
+
+        for k, (lonc, latc) in enumerate(candidate_centroids):
+            if main_poly.covers(geometry.Point(lonc, latc)):
+                out[k] = 0.0
+            else:
+                d = haversine_oq(bx, by, lonc, latc).ravel()  # (n_boundary,) in km
+                out[k] = d.min()
+
+        return out
 
     decimal_year = decimalyear(catalogue_pd)
     decimal_yearnp = np.array(decimal_year)
@@ -623,3 +623,4 @@ def abwd_rclosestp2p(catalogue_pd, rupture_area_poly, rjb_cutoff, window_method,
     flagvector = flagvector[id1]
 
     return flagvector, vcl
+
